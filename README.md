@@ -93,8 +93,38 @@ python3 domain_sentinel.py
 
 ## Docker Support
 
-For a portable, containerized setup, please see the detailed instructions in **[DOCKER.md](DOCKER.md)**.
+This is the simplest way to run the application. It packages all dependencies and configurations into a single image.
 
+1. Prerequisite: Install Docker Ensure you have Docker installed and running on your Linux system. You can find instructions on the official Docker website.
+
+2. Clone the Repository Open your terminal and clone the project from GitHub.
+
+Bash
+
+git clone https://github.com/Abdullahamjad0050/Domain-Sentinel-.git
+3. Navigate into the Project Directory
+
+Bash
+
+cd Domain-Sentinel-
+4. Build the Docker Image This command reads the Dockerfile and builds the application image, which includes Python, tshark, and all necessary libraries.
+
+Bash
+
+docker build -t domain-sentinel .
+5. Run the Application First, allow your computer to share its display with Docker, then run the container.
+
+Bash
+
+# Allow display access
+xhost +local:docker
+
+# Run the container
+docker run --rm -it \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=$DISPLAY \
+    domain-sentinel
+The Domain Sentinel application will now appear on your screen.
 ## License
 
 This project is licensed under the MIT License - see the `LICENSE` file for details.
