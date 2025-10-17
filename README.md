@@ -99,31 +99,37 @@ This is the simplest way to run the application. It packages all dependencies an
 
 2. Clone the Repository Open your terminal and clone the project from GitHub.
 
-Bash
-
+```bash
 git clone https://github.com/Abdullahamjad0050/Domain-Sentinel-.git
+```
 3. Navigate into the Project Directory
 
-Bash
 
+```bash
 cd Domain-Sentinel-
+```
 4. Build the Docker Image This command reads the Dockerfile and builds the application image, which includes Python, tshark, and all necessary libraries.
 
-Bash
 
+ ```bash
+      
 docker build -t domain-sentinel .
+ ```
 5. Run the Application First, allow your computer to share its display with Docker, then run the container.
 
-Bash
+
 
 # Allow display access
+ ```bash
 xhost +local:docker
-
+ ```
 # Run the container
+ ```bash
 docker run --rm -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=$DISPLAY \
     domain-sentinel
+ ```
 The Domain Sentinel application will now appear on your screen.
 ## License
 
